@@ -18,8 +18,8 @@
     <div class="form-group">
       <label for="kind" class="form-label">Kind</label>
       <select id="kind" th:field="*{kind}" class="form-control">
-        <option value="Cat">Cat</option>
         <option value="Dog" selected>Dog</option>
+        <option value="Cat">Cat</option>
         <option value="Rabbit">Rabbit</option>
       </select>
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label class="form-label">Sex</label>
       <div class="form-check">
-        <input type="radio" id="female" th:field="*{sex}" value="Female" class="form-check-input">
+        <input type="radio" checked  id="female" th:field="*{sex}" value="Female" class="form-check-input"  >
         <label for="female" class="form-check-label">Female</label>
       </div>
       <div class="form-check">
