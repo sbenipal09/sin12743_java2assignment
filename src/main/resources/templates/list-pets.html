@@ -1,0 +1,45 @@
+<!-- list html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Pets List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Pets</h1>
+  <a th:href="@{/pets/new}" class="btn btn-primary mb-3">New Pet</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Kind</th>
+      <th>Sex</th>
+      <th>Vaccinated</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet : ${pets}">
+      <td>
+        <div class="image-wrapper">
+          <img th:src="${pet.imageUrl}" class="img-thumbnail">
+        </div>
+      </td>
+      <td th:text="${pet.name}"></td>
+      <td th:text="${pet.kind}"></td>
+      <td th:text="${pet.sex}"></td>
+      <td th:text="${pet.isVaccinated ? 'Yes' : 'No'}"></td>
+      <td>
+        <div class="actions">
+          <a th:href="@{/pets/edit/{id}(id=${pet.id})}" class="btn btn-success">Edit</a>
+          <a th:href="@{/pets/delete/{id}(id=${pet.id})}" class="btn btn-danger">Delete</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
